@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Bebas+Neue&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;600;700;800&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;600;700&family=Playfair+Display:wght@500;600;700&family=Roboto+Slab:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/panel.css">
 </head>
 <body>
   <div class="main-container">
     <header class="app-header">
-      <div class="brand"><span class="brand-mark">T</span><div><span class="panel-kicker">Control de transmisión</span><h1>Títulos OBS</h1></div></div>
-      <div class="header-actions"><span class="status"><i></i> Sincronizado</span><button id="settings-button" class="icon-button" type="button" aria-label="Abrir personalización" aria-controls="settings-drawer">☰</button></div>
+      <div class="brand"><span class="brand-mark"><i class="fas fa-heading" aria-hidden="true"></i></span><div><span class="panel-kicker">Control de transmisión</span><h1>Títulos OBS</h1></div></div>
+      <div class="header-actions"><span class="status"><span class="status-dot" aria-hidden="true"></span><span>Sincronizado</span></span><button id="settings-button" class="icon-button" type="button" aria-label="Abrir personalización" aria-controls="settings-drawer" aria-expanded="false" title="Configuraci&#243;n"><i class="fas fa-sliders" aria-hidden="true"></i></button></div>
     </header>
 
     <main class="workspace">
@@ -24,47 +25,21 @@
           <label for="title-input">Título</label><input id="title-input" maxlength="100" value="Bienvenidos">
           <label for="subtitle-input">Subtítulo</label><textarea id="subtitle-input" maxlength="180" rows="2">Gracias por acompañarnos</textarea>
           <label for="eyebrow-input">Etiqueta superior</label><input id="eyebrow-input" maxlength="40" value="EN VIVO">
-          <div class="broadcast-control"><div><span class="broadcast-icon">●</span><span><strong>Salida en vivo</strong><small>Todo se sincroniza automáticamente</small></span></div><label class="switch"><input id="visibility-toggle" type="checkbox"><span class="slider"></span></label></div>
+          <div class="broadcast-control"><div><span class="broadcast-icon"><i class="fas fa-tower-broadcast" aria-hidden="true"></i></span><span><strong>Salida en vivo</strong><small>Todo se sincroniza automáticamente</small></span></div><label class="switch"><input id="visibility-toggle" type="checkbox" aria-label="Mostrar t&#237;tulo en OBS"><span class="slider"></span></label></div>
         </div>
-      </section>
 
-      <section class="preview-panel">
-        <div class="panel-heading preview-heading"><div><span class="step-number">02</span><div><h2>Vista previa</h2><p>Formato 16:9 de la salida</p></div></div><span class="live-pill"><i></i> OBS</span></div>
-        <div class="preview-frame"><iframe id="preview" src="/visualizador/?preview=1" title="Vista previa del título"></iframe></div>
-        <div class="obs-url"><span>URL para fuente de navegador</span><code id="obs-url"></code><button id="copy-url" type="button"><span aria-hidden="true">⧉</span> Copiar</button></div>
-      </section>
-    </main>
-
-  </div>
-
-  <aside id="settings-drawer" class="settings-drawer" aria-hidden="true">
-    <div class="settings-header"><div><h2>Personalización</h2></div><button id="settings-close" class="icon-button" type="button" aria-label="Cerrar personalización"><svg class="close-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 3l10 10M13 3L3 13" /></svg></button></div>
-    <div class="settings-body">
-      <section class="panel-appearance-section"><div class="settings-section-heading"><span>00</span><div><h3>Panel</h3><p>Optimiza el espacio disponible en OBS.</p></div></div><label for="panel-appearance">Apariencia general</label><select id="panel-appearance"><option value="normal">Normal</option><option value="compact">Compacto</option><option value="minimal">Minimalista</option></select></section>
-      <section><div class="settings-section-heading"><span>01</span><div><h3>Estilo</h3><p>Elige la apariencia general del título.</p></div></div><div class="theme-list" id="theme-list" role="radiogroup" aria-label="Tema del título">
-        <button class="theme-card selected" data-theme="broadcast"><span class="swatch broadcast"></span><strong>Transmisión</strong></button>
-        <button class="theme-card" data-theme="classic"><span class="swatch classic"></span><strong>Clásico</strong></button>
-        <button class="theme-card" data-theme="modern"><span class="swatch modern"></span><strong>Libro moderno</strong></button>
-        <button class="theme-card" data-theme="glass"><span class="swatch glass"></span><strong>Cristal</strong></button>
-        <button class="theme-card" data-theme="editorial"><span class="swatch editorial"></span><strong>Editorial</strong></button>
-        <button class="theme-card" data-theme="neon"><span class="swatch neon"></span><strong>Neón</strong></button>
-        <button class="theme-card" data-theme="cinematic"><span class="swatch cinematic"></span><strong>Cinematográfico</strong></button>
-        <button class="theme-card" data-theme="minimal"><span class="swatch minimal"></span><strong>Minimalista</strong></button>
-        <button class="theme-card" data-theme="ribbon"><span class="swatch ribbon"></span><strong>Cinta</strong></button>
-        <button class="theme-card" data-theme="spotlight"><span class="swatch spotlight"></span><strong>Reflector</strong></button>
-      </div></section>
-      <section><div class="settings-section-heading"><span>02</span><div><h3>Fondo</h3><p>Define el lienzo detrás del título.</p></div></div><div class="settings-grid">
+      <section class="background-controls" aria-labelledby="background-heading"><div class="settings-section-heading"><div><h3 id="background-heading">Fondo</h3><p>Define el lienzo detrás del título.</p></div></div><div class="settings-grid">
         <label for="background-type">Tipo de fondo</label><select id="background-type"><option value="color">Color</option><option value="image">Imagen</option><option value="video">Video</option></select>
         <div id="background-color-fields"><label for="background-color">Color</label><input id="background-color" type="color"></div>
         <div id="background-media-fields" hidden>
           <input id="background-input" class="file-input" type="file" accept="image/png,image/jpeg,image/webp">
           <button id="background-file-button" class="upload-control" type="button">
             <span class="upload-empty">Elegir o arrastrar imagen</span>
-            <span class="upload-loaded"><b>✓</b><span id="background-file-name">Archivo cargado</span></span>
+            <span class="upload-loaded"><i class="fas fa-check" aria-hidden="true"></i><span id="background-file-name">Archivo cargado</span></span>
             <span class="upload-remove">Quitar archivo</span>
           </button>
           <div class="fit-row"><div><label for="background-fit">Ajuste</label><select id="background-fit"><option value="cover">Rellenar</option><option value="stretch">Escalar</option><option value="contain">Proporción real</option></select></div>
-            <div class="anchor-wrap"><button id="anchor-button" class="ruler-button" type="button" aria-label="Elegir parte de la imagen" aria-expanded="false" title="Punto de anclaje">📐</button><div id="anchor-popover" class="anchor-popover" hidden><span>Parte visible</span><div class="anchor-grid" role="radiogroup"></div></div></div>
+            <div class="anchor-wrap"><button id="anchor-button" class="ruler-button" type="button" aria-label="Elegir parte de la imagen" aria-expanded="false" title="Punto de anclaje"><i class="fas fa-crop-simple" aria-hidden="true"></i></button><div id="anchor-popover" class="anchor-popover" hidden><span>Parte visible</span><div class="anchor-grid" role="radiogroup"></div></div></div>
           </div>
           <div id="image-options" class="media-options"><div class="switch-row"><span>Animar imagen</span><label class="switch"><input id="image-animation" type="checkbox"><span class="slider"></span></label></div></div>
           <div id="video-options" class="media-options" hidden aria-hidden="true">
@@ -85,11 +60,39 @@
         </div>
         <label for="overlay-opacity">Oscurecer fondo <output id="overlay-opacity-value"></output></label><input id="overlay-opacity" type="range" min="0" max="90">
       </div></section>
-      <section><div class="settings-section-heading"><span>03</span><div><h3>Logotipo</h3><p>Añade y dimensiona la marca sin deformarla.</p></div></div><div class="settings-grid">
+      </section>
+
+      <section class="preview-panel">
+        <div class="panel-heading preview-heading"><div><span class="step-number">02</span><div><h2>Vista previa</h2><p>Formato 16:9 de la salida</p></div></div><span class="live-pill"><i></i> OBS</span></div>
+        <div class="preview-frame"><iframe id="preview" src="/visualizador/?preview=1" title="Vista previa del título"></iframe></div>
+        <div class="obs-url"><span><i class="fas fa-display" aria-hidden="true"></i> URL del visor</span><code id="obs-url"></code><button id="copy-url" type="button"><i class="fas fa-copy" aria-hidden="true"></i> <span class="copy-label">Copiar</span></button></div>
+      </section>
+    </main>
+
+  </div>
+
+  <aside id="settings-drawer" class="settings-drawer" aria-hidden="true" aria-labelledby="settings-title">
+    <div class="settings-header"><div><h2 id="settings-title">Personalización</h2></div><button id="settings-close" class="icon-button" type="button" aria-label="Cerrar personalización"><svg class="close-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 3l10 10M13 3L3 13" /></svg></button></div>
+    <div class="settings-body">
+      <section class="panel-appearance-section"><div class="settings-section-heading"><span>00</span><div><h3>Panel</h3><p>Optimiza el espacio disponible en OBS.</p></div></div><label for="panel-appearance">Apariencia general</label><select id="panel-appearance"><option value="normal">Normal</option><option value="compact">Compacto</option><option value="minimal">Minimalista</option></select></section>
+      <section><div class="settings-section-heading"><span>01</span><div><h3>Estilo</h3><p>Elige la apariencia general del título.</p></div></div><div class="theme-list" id="theme-list" role="radiogroup" aria-label="Tema del título">
+        <button class="theme-card selected" data-theme="broadcast"><span class="swatch broadcast"></span><strong>Transmisión</strong></button>
+        <button class="theme-card" data-theme="classic"><span class="swatch classic"></span><strong>Clásico</strong></button>
+        <button class="theme-card" data-theme="modern"><span class="swatch modern"></span><strong>Libro moderno</strong></button>
+        <button class="theme-card" data-theme="glass"><span class="swatch glass"></span><strong>Cristal</strong></button>
+        <button class="theme-card" data-theme="editorial"><span class="swatch editorial"></span><strong>Editorial</strong></button>
+        <button class="theme-card" data-theme="neon"><span class="swatch neon"></span><strong>Neón</strong></button>
+        <button class="theme-card" data-theme="cinematic"><span class="swatch cinematic"></span><strong>Cinematográfico</strong></button>
+        <button class="theme-card" data-theme="minimal"><span class="swatch minimal"></span><strong>Minimalista</strong></button>
+        <button class="theme-card" data-theme="ribbon"><span class="swatch ribbon"></span><strong>Cinta</strong></button>
+        <button class="theme-card" data-theme="spotlight"><span class="swatch spotlight"></span><strong>Reflector</strong></button>
+      </div></section>
+
+      <section><div class="settings-section-heading"><span>02</span><div><h3>Logotipo</h3><p>Añade y dimensiona la marca sin deformarla.</p></div></div><div class="settings-grid">
         <input id="logo-input" class="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml">
         <button id="logo-file-button" class="upload-control" type="button">
           <span class="upload-empty">Elegir o arrastrar logotipo</span>
-          <span class="upload-loaded"><b>✓</b><span id="logo-status">Logotipo cargado</span></span>
+          <span class="upload-loaded"><i class="fas fa-check" aria-hidden="true"></i><span id="logo-status">Logotipo cargado</span></span>
           <span class="upload-remove">Quitar logotipo</span>
         </button>
         <label for="logo-filter">Tratamiento de color</label><select id="logo-filter"><option value="none">Original</option><option value="invert">Invertir blanco y negro</option><option value="colorize">Aplicar color</option></select>
@@ -97,23 +100,23 @@
         <label for="logo-width">Ancho máximo logo <output id="logo-width-value"></output></label><input id="logo-width" type="range" min="80" max="700" step="10">
         <label for="logo-height">Alto máximo logo <output id="logo-height-value"></output></label><input id="logo-height" type="range" min="60" max="450" step="10">
       </div></section>
-      <section><div class="settings-section-heading"><span>04</span><div><h3>Tipografía</h3><p>Ajusta la voz visual y la lectura.</p></div></div><div class="settings-grid">
+      <section><div class="settings-section-heading"><span>03</span><div><h3>Tipografía</h3><p>Ajusta la voz visual y la lectura.</p></div></div><div class="settings-grid">
         <label for="font-family">Tipo de letra</label><select id="font-family">
           <option value="'Inter', sans-serif">Inter</option><option value="'Open Sans', sans-serif">Open Sans</option><option value="'Montserrat', sans-serif">Montserrat</option><option value="'Archivo', sans-serif">Archivo</option><option value="'Space Grotesk', sans-serif">Space Grotesk</option><option value="'Oswald', sans-serif">Oswald</option><option value="'Bebas Neue', sans-serif">Bebas Neue</option><option value="'Roboto Slab', serif">Roboto Slab</option><option value="'Libre Baskerville', serif">Libre Baskerville</option><option value="'Playfair Display', serif">Playfair Display</option><option value="'Cormorant Garamond', serif">Cormorant Garamond</option><option value="'Cinzel', serif">Cinzel</option>
         </select>
         <label for="font-size">Tamaño del título <output id="font-size-value"></output></label><input id="font-size" type="range" min="28" max="110">
         <div class="paired-controls"><div><label for="text-align">Alineación</label><select id="text-align"><option value="left">Izquierda</option><option value="center">Centro</option><option value="right">Derecha</option></select></div><div><label for="text-color">Color del texto</label><input id="text-color" type="color"></div></div>
       </div></section>
-      <section><div class="settings-section-heading"><span>05</span><div><h3>Composición</h3><p>Ubica el título y controla su espacio.</p></div></div><div class="settings-grid">
+      <section><div class="settings-section-heading"><span>04</span><div><h3>Composición</h3><p>Ubica el título y controla su espacio.</p></div></div><div class="settings-grid">
         <div class="paired-controls"><div><label for="horizontal-align">Horizontal</label><select id="horizontal-align"><option value="left">Izquierda</option><option value="center">Centro</option><option value="right">Derecha</option></select></div><div><label for="vertical-align">Vertical</label><select id="vertical-align"><option value="top">Arriba</option><option value="center">Centro</option><option value="bottom">Abajo</option></select></div></div>
         <label for="max-width">Ancho de placa <output id="max-width-value"></output></label><input id="max-width" type="range" min="420" max="1600" step="20">
         <label for="padding">Márgenes internos <output id="padding-value"></output></label><input id="padding" type="range" min="16" max="100">
       </div></section>
-      <section><div class="settings-section-heading"><span>06</span><div><h3>Movimiento</h3><p>Configura cómo entra el título en escena.</p></div></div><div class="settings-grid">
+      <section><div class="settings-section-heading"><span>05</span><div><h3>Movimiento</h3><p>Configura cómo entra el título en escena.</p></div></div><div class="settings-grid">
         <label for="animation">Animación de entrada</label><select id="animation"><option value="slide">Deslizar</option><option value="fade">Fundido</option><option value="scale">Escala</option><option value="reveal">Revelado</option><option value="flip">Giro suave</option></select>
         <label for="duration">Duración <output id="duration-value"></output></label><input id="duration" type="range" min="250" max="1800" step="50">
       </div></section>
-      <button id="reset-settings" class="btn btn-secondary full" type="button"><span aria-hidden="true">↺</span> Restaurar ajustes</button>
+      <button id="reset-settings" class="btn btn-secondary full" type="button"><i class="fas fa-rotate-left" aria-hidden="true"></i> Restaurar ajustes</button>
     </div>
   </aside>
   <div id="settings-scrim" class="settings-scrim" hidden></div>

@@ -121,11 +121,11 @@ test('usa un campo de archivo uniforme y retrasa el texto hasta terminar el fond
   assert.match(viewerStyles, /\.title-stage\.is-visible \.title-card\{transition-delay:var\(--duration\)\}/u);
 });
 
-test('publica la información contextual del proyecto en versión 1.1.0', () => {
+test('publica la información contextual del proyecto en versión 1.2.0', () => {
   const info = fs.readFileSync(path.join(ROOT, 'public/index.html'), 'utf8');
   const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
   assert.match(info, /Títulos animados para OBS/u);
-  assert.match(info, /Versión 1\.1\.0/u);
+  assert.match(info, /Versión 1\.2\.0/u);
   assert.match(info, /Iván Bermúdez Regino/u);
-  assert.equal(manifest.version, '1.1.0');
+  assert.equal(manifest.version, '1.2.0');
 });

@@ -197,6 +197,7 @@
   function toggleSettings(open) {
     $('settings-drawer').classList.toggle('open', open);
     $('settings-drawer').setAttribute('aria-hidden', String(!open));
+    $('settings-button').setAttribute('aria-expanded', String(open));
     $('settings-scrim').hidden = !open;
   }
   function toggleAnchor(open) {
@@ -313,8 +314,8 @@
   $('settings-scrim').addEventListener('click', () => toggleSettings(false));
   $('copy-url').addEventListener('click', async () => {
     await navigator.clipboard.writeText(`${location.origin}/visualizador/`);
-    $('copy-url').textContent = 'Copiado';
-    setTimeout(() => { $('copy-url').textContent = 'Copiar'; }, 1200);
+    $('copy-url').querySelector('.copy-label').textContent = 'Copiado';
+    setTimeout(() => { $('copy-url').querySelector('.copy-label').textContent = 'Copiar'; }, 1200);
   });
   window.addEventListener('resize', scalePreview);
   $('preview').addEventListener('load', () => { scalePreview(); send('update'); });
